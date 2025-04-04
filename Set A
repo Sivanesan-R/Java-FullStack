@@ -1,0 +1,447 @@
+import java.util.*;
+
+class setA {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		// System.out.print("Enter any Number : ");
+		// int n = in.nextInt();
+		int a = 4, b = 5;
+		// System.out.println(oddoreven(m));
+		// System.out.println(prime(n));
+		// System.out.println(factorial(n));
+		// System.out.println(reverse(n));
+		// System.out.println(palindrome(n));
+		// System.out.println(armstrong(n));
+		// System.out.println(sumofdigit(n));
+		// System.out.println(gcd(num1,num2));
+		// System.out.println(lcm(num1,num2));
+		// System.out.println(perfect(n));
+		// int arr [] = fibannaci(n);
+		// for(int i=0;i<arr.length;i++){
+		// System.out.println(arr[i]);
+		// }
+		// System.out.println(strongnum(n));
+		// System.out.println(sumofnaturalnum(n));
+		// System.out.println(harshadnum(n));
+		// System.out.println(neonnumber(n));
+		// System.out.println(automorphic(n));
+		// rangeofprime(n);
+		// System.out.println(decitobinary(n));
+		// System.out.println(largestdigit(n));
+		// System.out.print(decitooctal(n));
+		// System.out.println(decitohexa(n));
+		// System.out.println(octaladdition(a,b));
+		// System.out.println(binaryaddtion(a,b));
+		// rightAngleTringle(b);
+		// InvertedRightAngledTriangle(b);
+		// PyramidPattern(b);
+		// InvertedPyramid(b);
+		// HollowSquare(b);
+		// FloydTriangle(b);
+		// NumberPyramid(b);
+		// PascalTriangle(b);
+		// DiamondPattern(b);
+		// System.out.println(factorialwithoutmultiplication(n));
+		check("abccb");
+	}
+
+	static String oddoreven(int a) {
+		if (a % 2 == 0) {
+			return "Even";
+		}
+		return "Odd";
+	}
+
+	static boolean prime(int a) {
+		for (int i = 2; i < a; i++) {
+			if (a % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	static int factorial(int a) {
+		int fact = 1;
+		for (int i = 1; i <= a; i++) {
+			fact *= i;
+		}
+		return fact;
+	}
+
+	static int reverse(int a) {
+		int digit = 0;
+		while (a > 0) {
+			digit = digit * 10 + a % 10;
+			a /= 10;
+		}
+		return digit;
+	}
+
+	static boolean palindrome(int a) {
+		int digit = 0;
+		int originalnum = a;
+		while (a > 0) {
+			digit = digit * 10 + a % 10;
+			a /= 10;
+		}
+		return originalnum == digit;
+	}
+
+	static boolean armstrong(int num) {
+		int digit = 0, sum = 0;
+		int orginalnum = num;
+		while (num > 0) {
+			digit = num % 10;
+			sum += digit * digit * digit;
+			num /= 10;
+		}
+		return orginalnum == sum;
+	}
+
+	static int sumofdigit(int num) {
+		int digit = 0, sum = 0;
+		while (num > 0) {
+			digit = num % 10;
+			sum += digit;
+			num /= 10;
+		}
+		return sum;
+	}
+
+	static int gcd(int a, int b) {
+		if (b == 0) {
+			return a;
+		}
+		return gcd(b, a % b);
+	}
+
+	static int lcm(int a, int b) {
+		int ans = (a * b) / gcd(a, b);
+		return ans;
+	}
+
+	static boolean perfect(int num) {
+		int sum = 0;
+		for (int i = 1; i < num; i++) {
+			if (num % i == 0) {
+				sum += i;
+			}
+		}
+		return sum == num;
+	}
+
+	static int[] fibannaci(int num) {
+		int[] temp = new int[num + 1];
+		int num1 = 0, num2 = 1, num3 = 0;
+		for (int i = 1; i <= num; i++) {
+			temp[i] = num1;
+			num3 = num1 + num2;
+			int t = num3;
+			num1 = num2;
+
+			num2 = t;
+		}
+
+		return temp;
+	}
+
+	static boolean strongnum(int num) {
+		int digit = 0, sum = 0, originalnum = num;
+		while (num > 0) {
+			digit = num % 10;
+			int fact = 1;
+			for (int i = 1; i <= digit; i++) {
+				fact *= i;
+			}
+			sum += fact;
+			num /= 10;
+		}
+
+		return sum == originalnum;
+	}
+
+	static int sumofnaturalnum(int n) {
+		int sum = 0;
+		for (int i = 0; i <= n; i++) {
+			sum += i;
+		}
+		return sum;
+	}
+
+	static boolean harshadnum(int num) {
+		int sum = 0, original = num;
+		while (num > 0) {
+			int digit = num % 10;
+			sum += digit;
+			num /= 10;
+		}
+		return original % sum == 0;
+	}
+
+	static boolean neonnumber(int num) {
+		int val = num * num, original = num, sum = 0;
+		while (val > 0) {
+			int digit = val % 10;
+			sum += digit;
+			val /= 10;
+		}
+		return sum == original;
+	}
+
+	static boolean automorphic(int num) {
+		int count = 0, aa = 1, val = num * num, original = num, sum = 0;
+		for (int i = 0; i < num; i++) {
+			int digit = num % 10;
+			num /= 10;
+			count++;
+		}
+		for (int i = 0; i < count; i++) {
+			int digit = val % 10;
+			sum = digit * aa + sum;
+			aa *= 10;
+			val /= 10;
+		}
+		return sum == original;
+
+	}
+
+	static void rangeofprime(int num) {
+		for (int j = 2; j < num; j++) {
+			boolean isPrime = true;
+			for (int i = 2; i < j; i++) {
+				if (j % i == 0) {
+					isPrime = false;
+					break;
+				}
+			}
+			if (isPrime) {
+				System.out.print(j + " ");
+			}
+		}
+	}
+
+	static int decitobinary(int num) {
+		int sum = 0, digit = 1;
+		for (int i = 0; i < num; i++) {
+			digit = digit * 10 + num % 2;
+			num /= 2;
+		}
+		return digit;
+	}
+
+	static int largestdigit(int num) {
+		int max = 0, digit = 0;
+		for (int i = 0; i < num; i++) {
+			digit = num % 10;
+			num /= 10;
+			if (digit > max) {
+				max = digit;
+			}
+		}
+		return max;
+	}
+
+	static int decitooctal(int num) {
+		int sum = 0, digit = 0;
+		while (num > 0) {
+			digit = digit * 10 + num % 8;
+			num /= 8;
+		}
+		return digit;
+	}
+
+	static String decitohexa(int num) {
+		char[] hexvalue = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+		String ans = "";
+		while (num > 0) {
+			int digit = num % 16;
+			ans = hexvalue[digit] + ans;
+			num /= 16;
+		}
+		return ans;
+	}
+
+	static int octaladdition(int num, int num2) {
+		int carry = 0, n = 1, result = 0;
+		while (num > 0 || num2 > 0 || carry > 0) {
+			int digit1 = num % 10;
+			int digit2 = num2 % 10;
+
+			int sum = digit1 + digit2 + carry;
+			carry = sum / 16;
+			result += (sum % 16) * n;
+
+			n *= 10;
+			num /= 10;
+			num2 /= 10;
+		}
+
+		return result;
+
+	}
+
+	static int binaryaddtion(int num, int num2) {
+		int carry = 0, n = 1, result = 0;
+		while (num > 0 || num2 > 0 || carry > 0) {
+			int digit1 = num % 10;
+			int digit2 = num2 % 10;
+
+			int sum = digit1 + digit2 + carry;
+			carry = sum / 2;
+			result += (sum % 2) * n;
+
+			n *= 10;
+			num /= 10;
+			num2 /= 10;
+		}
+
+		return result;
+	}
+
+	static void rightAngleTringle(int n) {
+		for (int i = 0; i <= n; i++, System.out.println()) {
+			for (int j = 0; j < i; j++) {
+				System.out.print("* ");
+			}
+		}
+	}
+
+	static void InvertedRightAngledTriangle(int n) {
+		for (int i = 0; i < n; i++, System.out.println()) {
+			for (int j = 0; j < n - i; j++) {
+				System.out.print("* ");
+			}
+
+		}
+	}
+
+	static void PyramidPattern(int n) {
+		for (int i = 0; i < n; i++, System.out.println()) {
+			for (int j = 0; j < n - i; j++) {
+				System.out.print("");
+			}
+			for (int k = 0; k < 2 * i - 1; k++) {
+				System.out.print("*");
+			}
+
+		}
+	}
+
+	static void InvertedPyramid(int n) {
+		for (int i = 1; i <= n; i++, System.out.println()) {
+			for (int j = 1; j <= i; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k <= n * 2 - (2 * i); k++) {
+				System.out.print("*");
+			}
+
+		}
+	}
+
+	static void HollowSquare(int n) {
+		for (int i = 0; i <= n; i++, System.out.println()) {
+			for (int j = 0; j <= n; j++) {
+				if (i == 0 || i == n || j == 0 || j == n) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+			}
+
+		}
+	}
+
+	static void FloydTriangle(int n) {
+		int count = 0;
+		for (int i = 0; i <= n; i++, System.out.println()) {
+			for (int j = 0; j < i; j++) {
+				count++;
+				System.out.print(count + " ");
+			}
+		}
+	}
+
+	static void NumberPyramid(int n) {
+		for (int i = 0; i <= n; i++, System.out.println()) {
+			for (int j = 0; j < n - i; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k < 2 * i - 1; k++) {
+				System.out.print(i);
+			}
+
+		}
+	}
+
+	static void PascalTriangle(int n) {
+		for (int i = 0; i < n; i++, System.out.println()) {
+			for (int j = 0; j < n - i; j++) {
+				System.out.print(" ");
+			}
+			int number = 1;
+			for (int j = 0; j <= i; j++) {
+				System.out.print(number + " ");
+				number = number * (i - j) / (j + 1);
+			}
+
+		}
+	}
+
+	static void DiamondPattern(int n) {
+		for (int i = 0; i <= n; i++, System.out.println()) {
+			for (int j = 0; j <= n - i; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k < 2 * i - 1; k++) {
+				System.out.print("*");
+			}
+
+		}
+		for (int i = 1; i <= n; i++, System.out.println()) {
+			for (int j = 1; j <= i; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k <= n * 2 - (2 * i); k++) {
+				System.out.print("*");
+			}
+
+		}
+
+	}
+
+	static int factorialwithoutmultiplication(int num) {
+		int ans = 0;
+		if (num == 1 || num == 0) {
+			return 1;
+		} else {
+			ans += num * factorialwithoutmultiplication(num - 1);
+		}
+		return ans;
+	}
+
+	static void check(String letters) {
+		char[] arr = letters.toCharArray();
+		char ans[] = new char[arr.length];
+		boolean flag = true;
+		int count = 0;
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = i + 1; j < arr.length; j++) {
+				if (arr[i] == arr[j]) {
+					flag = false;
+				}
+			}
+			if (flag) {
+				ans[count] = arr[i];
+				count++;
+			}
+
+		}
+		for (int value : ans) {
+			System.out.print(ans[value]);
+		}
+
+	}
+
+}
